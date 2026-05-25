@@ -1,26 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UPI ScanPro</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QR Pay</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(180deg, #1a1a2e, #16213e);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      max-width: 400px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+    .option {
+      background: rgba(255,255,255,0.1);
+      margin: 15px auto;
+      padding: 20px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .option:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.03);
+    }
+    .option h3 { margin: 10px 0 5px; }
+    button {
+      width: 100%;
+      padding: 16px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .scan-btn { background: #00cc66; color: white; }
+    .upload-btn { background: #0066ff; color: white; }
+    .manual-btn { background: #ff8800; color: white; }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1 class="title">UPI ScanPro</h1>
+    <h1>QR Payment</h1>
     
-    <div class="scanner-box">
-      <h2>Scan UPI QR Code</h2>
-      <div id="reader" style="width:100%; max-width:380px; margin:20px auto;"></div>
+    <div class="option" onclick="scanQR()">
+      <h3>📱 Scan QR Code</h3>
+      <p>Camera se QR scan karein</p>
     </div>
 
-    <button onclick="window.location.href='amount.html'" class="btn manual-btn">
-      Enter Manually
+    <button class="upload-btn" onclick="uploadQR()">
+      📤 Upload QR Image
+    </button>
+
+    <button class="manual-btn" onclick="window.location.href='manual.html'">
+      ✍️ Enter Manually
     </button>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    function scanQR() {
+      alert("Camera khul rahi hai... (Demo Mode)");
+      // Agar real camera chahiye to yaha logic daal sakte hain
+      setTimeout(() => {
+        window.location.href = 'success.html';
+      }, 1500);
+    }
+
+    function uploadQR() {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.onchange = function(e) {
+        if (e.target.files.length > 0) {
+          alert("QR Image upload ho gaya! Processing...");
+          setTimeout(() => {
+            window.location.href = 'success.html';
+          }, 1200);
+        }
+      };
+      input.click();
+    }
+  </script>
 </body>
 </html>
