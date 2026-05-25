@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI ScanPro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">UPI ScanPro</h1>
+    
+    <div class="scanner-box">
+      <h2>Scan UPI QR Code</h2>
+      <div id="reader" style="width:100%; max-width:380px; margin:20px auto;"></div>
+    </div>
+
+    <button onclick="window.location.href='amount.html'" class="btn manual-btn">
+      Enter Manually
+    </button>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

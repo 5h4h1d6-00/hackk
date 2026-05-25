@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Success - UPI ScanPro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container success-page">
+    <div class="success-card">
+      <div class="check-circle">
+        <span class="checkmark">✓</span>
+      </div>
+      
+      <h1 class="amount" id="displayAmount">₹150.00</h1>
+      <p class="paid-to">Paid to</p>
+      <h2 class="recipient-name" id="displayName">FAIZAN AHMED ITTO SO MOHD SHAF</h2>
+      
+      <div class="upi-info" id="displayUPI">
+        PhonePe • 6005540487@axl
+      </div>
+      
+      <div class="timestamp" id="displayTime"></div>
+    </div>
+
+    <button onclick="window.location.href='index.html'" class="btn new-scan-btn">
+      Scan New QR Code
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
