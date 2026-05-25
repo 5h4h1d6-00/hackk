@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>QR Pay</title>
+  <title>UPI ScanPro</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(180deg, #1a1a2e, #16213e);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(180deg, #1e1b4b, #312e81);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -18,80 +22,66 @@
     .container {
       text-align: center;
       padding: 20px;
-      max-width: 400px;
-    }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 40px;
-    }
-    .option {
-      background: rgba(255,255,255,0.1);
-      margin: 15px auto;
-      padding: 20px;
-      border-radius: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .option:hover {
-      background: rgba(255,255,255,0.2);
-      transform: scale(1.03);
-    }
-    .option h3 { margin: 10px 0 5px; }
-    button {
       width: 100%;
-      padding: 16px;
-      margin: 10px 0;
+      max-width: 380px;
+    }
+    .title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 60px;
+      background: linear-gradient(90deg, #22d3ee, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .btn {
+      width: 100%;
+      padding: 18px;
+      margin: 12px 0;
       border: none;
       border-radius: 50px;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
-    .scan-btn { background: #00cc66; color: white; }
-    .upload-btn { background: #0066ff; color: white; }
-    .manual-btn { background: #ff8800; color: white; }
+    .scan-btn {
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .manual-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    .scan-btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: scale(1.03);
+    }
+    .manual-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>QR Payment</h1>
+    <h1 class="title">UPI Payment</h1>
     
-    <div class="option" onclick="scanQR()">
-      <h3>📱 Scan QR Code</h3>
-      <p>Camera se QR scan karein</p>
-    </div>
-
-    <button class="upload-btn" onclick="uploadQR()">
-      📤 Upload QR Image
+    <button class="btn scan-btn" onclick="scanQR()">
+      Scan QR Code
     </button>
-
-    <button class="manual-btn" onclick="window.location.href='manual.html'">
-      ✍️ Enter Manually
+    
+    <button class="btn manual-btn" onclick="window.location.href='manual.html'">
+      Enter Amount
     </button>
   </div>
 
   <script>
     function scanQR() {
-      alert("Camera khul rahi hai... (Demo Mode)");
-      // Agar real camera chahiye to yaha logic daal sakte hain
+      alert("Camera opening... (Demo Mode)");
       setTimeout(() => {
         window.location.href = 'success.html';
       }, 1500);
-    }
-
-    function uploadQR() {
-      const input = document.createElement('input');
-      input.type = 'file';
-      input.accept = 'image/*';
-      input.onchange = function(e) {
-        if (e.target.files.length > 0) {
-          alert("QR Image upload ho gaya! Processing...");
-          setTimeout(() => {
-            window.location.href = 'success.html';
-          }, 1200);
-        }
-      };
-      input.click();
     }
   </script>
 </body>
