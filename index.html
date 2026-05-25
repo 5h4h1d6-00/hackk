@@ -1,88 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>UPI ScanPro</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: linear-gradient(180deg, #1e1b4b, #312e81);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-    }
-    .container {
-      text-align: center;
-      padding: 20px;
-      width: 100%;
-      max-width: 380px;
-    }
-    .title {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 60px;
-      background: linear-gradient(90deg, #22d3ee, #60a5fa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .btn {
-      width: 100%;
-      padding: 18px;
-      margin: 12px 0;
-      border: none;
-      border-radius: 50px;
-      font-size: 18px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .scan-btn {
-      background: rgba(255, 255, 255, 0.15);
-      color: white;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .manual-btn {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-    }
-    .scan-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: scale(1.03);
-    }
-    .manual-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UPI Payment</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1 class="title">UPI Payment</h1>
+    <h1 class="title">UPI ScanPro</h1>
     
-    <button class="btn scan-btn" onclick="scanQR()">
-      Scan QR Code
-    </button>
-    
-    <button class="btn manual-btn" onclick="window.location.href='manual.html'">
+    <div class="scanner-box">
+      <h2>Scan QR Code</h2>
+      <div id="reader" style="width:100%; max-width:380px; margin:20px auto;"></div>
+    </div>
+
+    <button onclick="window.location.href='amount.html'" class="btn manual-btn">
       Enter Amount
     </button>
   </div>
 
-  <script>
-    function scanQR() {
-      alert("Camera opening... (Demo Mode)");
-      setTimeout(() => {
-        window.location.href = 'success.html';
-      }, 1500);
-    }
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
